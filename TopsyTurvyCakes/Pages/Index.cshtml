@@ -1,0 +1,24 @@
+﻿@page
+@using TopsyTurvyCakes.Models
+@{ 
+    ViewData["Title"] = "My Favorite Recipes";
+    var recipes = await RecipesService.GetAllAsync();
+}
+
+@section Title {
+    <h2 class="title">@ViewData["Title"]</h2>
+    <a class="btn btn-primary add-recipe" href="/Admin/AddEditRecipe">Add Recipe</a>
+}
+
+<div class="row recipes">
+
+    @foreach (var recipe in recipes)
+    {
+        <div class="recipe col-md-4">
+            <img class="img img-thumbnail" src="@recipe.GetInlineImageSrc()" />
+            <h3><a href="/recipe/@recipe.Id">@recipe.Name</a></h3>
+            <p>@recipe.Description</p>
+        </div>
+    }
+
+</div>
