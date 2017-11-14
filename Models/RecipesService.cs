@@ -11,8 +11,8 @@ namespace TopsyTurvyCakes.Models
         public RecipesService()
         {
             var options = new DbContextOptionsBuilder<RecipesDbContext>()
-                .UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDb;Database=TopsyTurvyCakes;Trusted_Connection=True;")
-                //.UseInMemoryDatabase("TopsyTurvyCakes")
+                //.UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDb;Database=TopsyTurvyCakes;Trusted_Connection=True;")
+                .UseInMemoryDatabase("TopsyTurvyCakes")
                 .Options;
 
             _context = new RecipesDbContext(options);
