@@ -7,6 +7,9 @@ namespace TopsyTurvyCakes.Models
     public class Recipe
     {
         public long Id { get; set; }
+
+        [Required]
+        [StringLength]
         public string Name { get; set; }
         public string Description { get; set; }
         public string Directions { get; set; }
