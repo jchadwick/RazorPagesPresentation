@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Globalization;
 
 namespace TopsyTurvyCakes.Pages.Account
 {
@@ -35,11 +37,13 @@ namespace TopsyTurvyCakes.Pages.Account
                 return Page();
             }
 
+            var username = EmailAddress.Substring(0, EmailAddress.IndexOf('@'));
+            var name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(username);
             var scheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
             var user = new ClaimsPrincipal(
                 new ClaimsIdentity(
-                        new [] { new Claim(ClaimTypes.Name, EmailAddress) },
+                        new [] { new Claim(ClaimTypes.Name, name) },
                         scheme
                     )
                 );

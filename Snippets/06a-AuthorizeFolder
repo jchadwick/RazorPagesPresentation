@@ -1,0 +1,7 @@
+services.AddMvc()
+    .AddRazorPagesOptions(_ =>
+    {
+        _.Conventions.AuthorizeFolder("/Account");
+        _.Conventions.AuthorizeFolder("/Admin");
+        _.Conventions.AllowAnonymousToPage("/Account/Login");
+    });

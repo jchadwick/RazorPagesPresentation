@@ -1,9 +1,7 @@
 @page
 @model LoginModel
 <div class="row">
-
     <form method="post" class="form-horizontal">
-
         @if (!ModelState.IsValid)
         {
             <div class="col-md-offset-2 col-md-10">
@@ -19,7 +17,6 @@
                 <input asp-for="EmailAddress" class="form-control" placeholder="Email" />
             </div>
         </div>
-
         <div class="form-group">
             <label asp-for="Password" class="col-sm-2 control-label"></label>
             <div class="col-sm-10">
@@ -29,11 +26,31 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Sign in</button>
+                <button id="submit" type="submit" class="btn btn-default">Sign in</button>
             </div>
         </div>
-
     </form>
+
+    <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-offset-2 col-md-6 well text-muted">
+            <label>Email:</label>
+            <span>admin@topsyturvycakedesign.com</span>
+            <br />
+            <label>Password:</label>
+            <span>topsecret!</span>
+            <br />
+            <button onclick="populate()">Auto-Fill</button>
+        </div>
+    </div>
+
 
 </div>
 
+<script type="text/javascript">
+    function populate() {
+        console.log('Awesome')
+        document.getElementsByName('EmailAddress')[0].value = "admin@topsyturvycakedesign.com";
+        document.getElementsByName('Password')[0].value = "topsecret!";
+        return false;
+    }
+</script>

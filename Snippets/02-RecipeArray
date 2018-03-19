@@ -1,0 +1,17 @@
+
+    @foreach(var recipe in new [] {
+            new {
+                Id = 1,
+                Name = "Birthday Cake for Fido",
+                ImageUrl = "http://topsyturvycakedesign.com/wp-content/uploads/2016/11/Dog-cake_517345931-680x450.jpg",
+                Description = "Pampering your pet with a birthday cake is a great way to celebrate, but there are careful considerations to make when deciding to share this two-legged ritual with your four-legged friends. For ...",
+            },
+            new {
+                Id = 2,
+                Name = "Pumpkin Pie",
+                ImageUrl = "http://topsyturvycakedesign.com/wp-content/uploads/2015/04/Blog-Recipe-3-111864329-680x450.jpg",
+                Description = "I thought it would be nice to break away from the traditional cake posts and share one of my favorite desserts to have during the fall. Pumpkin pie! This recipe is adapted from my grandmother's ...",
+            },
+        })
+    {
+       

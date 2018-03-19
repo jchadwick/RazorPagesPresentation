@@ -1,0 +1,34 @@
+        //[BindProperty]
+        //public Microsoft.AspNetCore.Http.IFormFile Image { get; set; }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            var recipe = await recipesService.FindAsync(Id.GetValueOrDefault())
+                ?? new Recipe();
+
+            recipe.Name = Recipe.Name;
+            recipe.Description = Recipe.Description;
+            recipe.Ingredients = Recipe.Ingredients;
+            recipe.Directions = Recipe.Directions;
+
+            /*
+            if (Image != null)
+            {
+                using (var stream = new System.IO.MemoryStream())
+                {
+                    await Image.CopyToAsync(stream);
+
+                    recipe.Image = stream.ToArray();
+                    recipe.ImageContentType = Image.ContentType;
+                }
+            }
+            */
+
+            await recipesService.SaveAsync(recipe);
+            return RedirectToPage("/Recipe", new { id = recipe.Id });
+        }

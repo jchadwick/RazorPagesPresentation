@@ -1,0 +1,5 @@
+<div class="recipe col-md-4">
+    <img class="img img-thumbnail" src="[ImageUrl]" />
+    <h3><a href="/Recipe?id=[ID]">[Name]</a></h3>
+    <p>[Description]</p>
+</div>

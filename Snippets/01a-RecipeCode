@@ -1,0 +1,6 @@
+new {
+    Id = 1,
+    Name = "Birthday Cake for Fido",
+    ImageUrl = "http://topsyturvycakedesign.com/wp-content/uploads/2016/11/Dog-cake_517345931-680x450.jpg",
+    Description = "Pampering your pet with a birthday cake is a great way to celebrate, but there are careful considerations to make when deciding to share this two-legged ritual with your four-legged friends. For ...",
+};

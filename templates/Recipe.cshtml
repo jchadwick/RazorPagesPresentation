@@ -1,0 +1,43 @@
+﻿@page "{id}"
+@{ 
+    var recipeId = long.Parse((string)RouteData.Values["id"]);
+    var recipesService = new TopsyTurvyCakes.Models.RecipesService();
+    var recipe = await recipesService.FindAsync(recipeId);
+}
+
+@section Title {
+    <h2 class="title">@recipe.Name</h2>
+    <a href="/Admin/AddEditRecipe/@recipe.Id" class="add-recipe btn btn-primary">Edit</a>
+}
+
+<div class="row recipe">
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <span class="description">
+                @recipe.Description
+            </span>
+            <hr />
+        </div>
+        <div class="ingredients col-md-4">
+            <h4>Ingredients</h4>
+            <ul>
+                @foreach (var ingredient in recipe.IngredientsList)
+                {
+                    <li>@ingredient</li>
+                }
+            </ul>
+        </div>
+        <div class="directions col-md-8">
+            <h4>Directions</h4>
+            <ol>
+                @foreach (var step in recipe.DirectionsList)
+                {
+                    <li>@step</li>
+                }
+            </ol>
+        </div>
+    </div>
+    <div class="col-md-4 text-right">
+        <img class="img img-thumbnail" src="@recipe.GetInlineImageSrc()" />
+    </div>
+</div>

@@ -9,7 +9,7 @@ namespace TopsyTurvyCakes.Models
         public long Id { get; set; }
 
         [Required]
-        [StringLength]
+        [StringLength(100, MinimumLength = 5)]
         public string Name { get; set; }
         public string Description { get; set; }
         public string Directions { get; set; }

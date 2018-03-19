@@ -1,0 +1,10 @@
+// Startup.ConfigureServices():
+
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie();
+
+
+
+// Startup.Configure():
+
+app.UseAuthentication();
