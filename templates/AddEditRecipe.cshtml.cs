@@ -25,7 +25,7 @@ namespace TopsyTurvyCakes.Pages.Admin
         public Recipe Recipe { get; set; }
 
         [BindProperty]
-        public IFormFile Image { get; set; }
+        public Microsoft.AspNetCore.Http.IFormFile Image { get; set; }
 
         public AddEditRecipeModel(IRecipesService recipesService)
         {
